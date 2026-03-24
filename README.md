@@ -61,3 +61,29 @@ Marks a field as the primary key of the database table. Every entity must have o
 @Transactional
 Wraps a method in a database transaction. If everything succeeds, 
 changes are saved. If anything fails, everything is rolled back automatically keeping the database clean like D in ACID Property.
+
+
+6 Improving NammaCircle Performance as a Backend Engineer
+Issue I Observe:
+1. Slow page load time
+2. Delay in fetching job listings
+3. Lag when submitting profile data
+
+Solutions:-
+1. Database Indexing
+Add indexes on frequently searched columns like email, company_id, candidate_id so database queries run faster instead of scanning the entire table.
+
+2. Caching with Redis
+Instead of hitting the database every time for the same data like job listings or company profiles, store them in Redis cache. Serve from cache — much faster.
+
+3. Pagination
+Instead of loading all records at once, load data in small pages — reduces response time drastically.
+
+4. Async Processing
+For non-critical tasks like sending emails or notifications, don't make the user wait — process them in background.
+
+5. API Response Optimization
+Return only required fields using DTOs — don't expose full entity
+Reduces response payload size.
+
+Thank you.
